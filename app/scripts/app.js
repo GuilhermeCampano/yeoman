@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-angular
-  .module('yeomanApp', [
+var app =angular.module('yeomanApp', [
     'ngAnimate',
     'ngAria',
     'ngCookies',
@@ -18,8 +17,9 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch'
-  ])
-  .config(function ($routeProvider) {
+  ]);
+
+ app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -30,6 +30,11 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .when('/todo', {
+        templateUrl: 'views/todo.html',
+        controller: 'TodoCtrl',
+        controllerAs: 'todo'
       })
       .otherwise({
         redirectTo: '/'
